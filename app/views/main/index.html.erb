@@ -1,0 +1,39 @@
+<div id="index">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Testing Agora</h1>
+				<p>Testing the agora engine</p>
+
+				<a class="button join">Join Channel</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+		
+	$(window).load(function() {
+		var client = AgoraRTC.createClient({mode: 'live', codec: "h264"});
+
+		client.init("eb87b1495576451392158959d91a19e4", function () {
+			console.log("AgoraRTC client initialized");
+		}, function (err) {
+			console.log("AgoraRTC client init failed", err);
+		});
+
+
+		//// set up the join channel button
+		$("a.join").on("click", function() {
+			
+			client.join(null, "test", null, function(uid) {
+				console.log(" ")
+				console.log("Client Join Callback:")
+			    console.log("User " + uid + " join channel successfully");
+			}, function(err) {
+			  console.log("Join channel failed", err);
+			});
+		})
+	})
+
+</script>
