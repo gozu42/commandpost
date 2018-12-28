@@ -10,10 +10,17 @@
 	.button {
 		display: inline-block;
 		padding: .5em 1em;
-		background: #ddd;
+		background: #fafafa;
+		border: 2px solid #ddd;
 		text-decoration: none;
 		font-size: 1em;
 		cursor: pointer;
+	}
+
+	.button:hover {
+		background: #888;
+		border: 2px solid #666;
+		color: #fff;
 	}
 
 	#agora_local {
@@ -21,7 +28,7 @@
 		width: 100%;
 
 		#player_ {
-			
+
 		}
 	}
 }
