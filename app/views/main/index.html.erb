@@ -101,11 +101,15 @@
 				client.on('stream-subscribed', function (evt) {
 					var remoteStream = evt.stream;
 
+					console.log(" ")
 					console.log("Subscribe remote stream successfully: " + stream.getId());
 
 					console.log(" ")
 					console.log("remote shit")
 
+					var nhtml = "<div id='agora_remote" + stream.getId() + "'></div>"
+					$("#index").append(nhtml)
+					
 					stream.play('agora_remote' + stream.getId());
 				})
 
