@@ -18,6 +18,9 @@
 
 				<div id="aogra_remote"></div>
 			</div>
+			<div class="col-sm-4">
+				<div class="agora-remotes"></div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -104,8 +107,8 @@
 						console.log(" ")
 						console.log("remote shit")
 
-						var nhtml = "<div id='agora_remote" + stream.getId() + "'></div>"
-						$("#index").append(nhtml)
+						var nhtml = "<div id='agora_remote" + stream.getId() + "' class='agora-player'></div>"
+						$(".agora-remotes").append(nhtml)
 
 						stream.play('agora_remote' + stream.getId());
 					})
