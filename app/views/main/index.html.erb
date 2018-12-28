@@ -46,28 +46,6 @@
 			    console.log("Publish local stream successfully");
 			});
 
-			client.on('stream-added', function (evt) {
-				var stream = evt.stream;
-
-				console.log(" ")
-				console.log("New stream added: " + stream.getId());
-
-				client.subscribe(stream, function (err) {
-					console.log("Subscribe stream failed", err);
-				});
-			});
-
-			client.on('stream-subscribed', function (evt) {
-				var remoteStream = evt.stream;
-
-				console.log("Subscribe remote stream successfully: " + stream.getId());
-
-				console.log(" ")
-				console.log("remote shit")
-
-				stream.play('agora_remote' + stream.getId());
-			})
-
 
 		}, function (err) {
 			console.log("AgoraRTC client init failed", err);
@@ -93,20 +71,46 @@
 				);
 
 				localStream.init(function() {
+
+					console.log(" ")
 					console.log("getUserMedia successfully");
 					localStream.play('agora_local');
 
+					client.publish(localStream, function (err) {
+						console.log(" ")
+						console.log("Publish local stream error: " + err);
+					});
+
 				}, function (err) {
+					console.log(" ")
 				    console.log("getUserMedia failed", err);
 				});
 
-				client.publish(localStream, function (err) {
-					console.log("Publish local stream error: " + err);
+
+				client.on('stream-added', function (evt) {
+					var stream = evt.stream;
+
+					console.log(" ")
+					console.log("New stream added: " + stream.getId());
+
+					client.subscribe(stream, function (err) {
+						console.log("Subscribe stream failed", err);
+					});
 				});
 
+				client.on('stream-subscribed', function (evt) {
+					var remoteStream = evt.stream;
+
+					console.log("Subscribe remote stream successfully: " + stream.getId());
+
+					console.log(" ")
+					console.log("remote shit")
+
+					stream.play('agora_remote' + stream.getId());
+				})
 
 			}, function(err) {
-			  console.log("Join channel failed", err);
+				console.log("Join channel failed", err);
 			});
 		})
 
