@@ -36,9 +36,17 @@
 		console.log(lt)
 		console.log(ln)
 
-		var marker = new mapboxgl.Marker().setLngLat([ln,lt]).addTo(map);
+		// create a HTML element for each feature
+		var el = document.createElement('div');
+		el.className = 'marker police';
+		// el.className = 'marker ems';
+		// el.className = 'marker fire';
 
-		createMarker(lt,ln)
+		// make a marker for each feature and add to the map
+		new mapboxgl.Marker(el).setLngLat([ln,lt]).addTo(map);
+		// var marker = new mapboxgl.Marker(mhtml).setLngLat([ln,lt]).addTo(map);
+
+		// createMarker(lt,ln)
 	});
 
 

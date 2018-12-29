@@ -62,3 +62,32 @@
 		z-index: 1;
 	}
 }
+
+.marker {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+	background: #ccc;
+	position: relative;
+	z-index: 50000;
+}
+
+.marker.ems {
+	background: red;
+}
+
+.marker.police {
+	background: blue;
+}
+
+.marker.fire {
+	background: orange;
+}
+
+
+
+
+
+
+
+
