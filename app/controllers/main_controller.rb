@@ -1,8 +1,12 @@
 class MainController < ApplicationController
+  
   def index
   end
 
+  def command
 
+  end
+  
   def createmarker
 
   	@lat = params[:lat]

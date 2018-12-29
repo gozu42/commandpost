@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :markers
   
   match '/map', to: 'main#map', via: 'get'
+  match '/command', to: 'main#command', via: 'get'
   match '/createmarker', to: 'main#createmarker', via: 'get'
   match '/checkmarkers', to: 'main#checkmarkers', via: 'get'
 
