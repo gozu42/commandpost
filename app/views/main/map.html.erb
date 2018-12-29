@@ -17,36 +17,61 @@
 <script type="text/javascript">
   
 	mapboxgl.accessToken = 'pk.eyJ1IjoiYnJ5YW5rbm91c2UiLCJhIjoiY2pxOHFlb3FoMzN1NTQzcGR0aGIxa240NSJ9.xgH24CaHc9SZuSCQ2Q24kw';
+
+	// create map
 	var map = new mapboxgl.Map({
 		container: 'map',
 		center: [-118.6260029,34.3861719],
-		zoom: 9,
-		style: 'mapbox://styles/mapbox/streets-v11'
+		zoom: 9.5,
+		style: 'mapbox://styles/bryanknouse/cjq8t7219dm5o2sptlq04ak6b'
 	});
 
+
+	// add map marker to map on clicks
 	map.on('click', function(e) {
-		// var features = map.queryRenderedFeatures(e.point, {
-		// 	// layers: ['layer-name-here'] // replace this with the name of the layer
-		// });
 
-		console.log(e.point)
-		console.log(e.lngLat.lng)
-		console.log(e.lngLat.lat)
+		var lt = e.lngLat.lat
+		var ln = e.lngLat.lng
 
-		var marker = new mapboxgl.Marker().setLngLat([e.lngLat.lng,e.lngLat.lat]).addTo(map);
+		console.log(lt)
+		console.log(ln)
 
-		// if (!features.length) {
-	 //    	return;
-		// }
-
-		// var feature = features[0];
-
-		// var popup = new mapboxgl.Popup({ offset: [0, -15] })
-	 //    	.setLngLat(feature.geometry.coordinates)
-	 //    	.setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
-	 //    	.setLngLat(feature.geometry.coordinates)
-	 //    	.addTo(map);
+		var marker = new mapboxgl.Marker().setLngLat([ln,lt]).addTo(map);
 	});
 
-  // var marker = new mapboxgl.Marker().setLngLat([-118.6260029,34.3861719]).addTo(map);
+
+
+	$(window).load(function() {
+
+		var interval = setInterval(function(){
+			checkMarkers()
+		}, 5000)
+	})
+
+
+	//// generate 30,000 random map markers
+	function goMarkers() {
+
+		for (var i = 3000 - 1; i >= 0; i--) {
+			
+			// generate the lat and lng values
+			var lati = 34.0000000 + Math.random()
+			var long = -117.3000000 - Math.random() - Math.random()
+
+			var marker = new mapboxgl.Marker().setLngLat([long,lati]).addTo(map);
+		}
+	}
+
 </script>
+<!-- 
+TR
+34.79626347106817
+-117.93800448840696
+
+TL
+34.79626347106817
+map:56 -119.31691450176572
+
+BL
+34.00707234401874
+map:56 -119.30137748753182 -->

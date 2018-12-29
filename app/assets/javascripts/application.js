@@ -13,3 +13,38 @@
 //= require rails-ujs
 //= require jquery
 //= require_tree .
+
+
+
+
+$(document).ready(function() {
+
+
+})
+
+
+
+
+function createMarker(lat,lng) {
+
+	$.get("/createmarker?lat=" + lat + "&lng=" + lng, function(data){
+
+		console.log(data)
+
+	})
+}
+
+
+
+function checkMarkers() {
+
+	$.get("/checkmarkers", function(data){
+
+		console.log(JSON.parse(data))
+
+		var l = JSON.parse(data).lat
+		var n = JSON.parse(data).lng
+
+		var marker = new mapboxgl.Marker().setLngLat([n,l]).addTo(map);
+	})
+}
