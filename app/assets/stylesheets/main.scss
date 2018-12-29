@@ -45,7 +45,7 @@
 
 
 #maptest {
-	padding: 8em 0;
+	padding: 3rem 0;
 
 	h1 {
 		position: relative;
@@ -60,6 +60,62 @@
 		width: 100%;
 		height: 100vh;
 		z-index: 1;
+	}
+
+	.mapnav {
+		display: block;
+		width: 50%;
+		height: 50px;
+		position: relative;
+		z-index: 5000;
+		margin: 0 auto;
+
+		.mapnav-item {
+			display: inline-block;
+			width: 25%;
+			float: left;
+			height: 50px;
+			cursor: pointer;
+			opacity: .8;
+		}
+
+		.mapnav-item.police {
+			background: blue;
+		}
+
+		.mapnav-item.ems {
+			background: red;
+		}
+
+		.mapnav-item.fire {
+			background: orange;
+		}
+
+		.mapnav-item.geometry {
+			background: yellow;
+		}
+
+		.mapnav-item.active {
+			opacity: 1;
+		}
+
+		.mapnav-item.inactive {
+			opacity: .45;
+		}
+
+		.mapnav-item:hover {
+			opacity: .6;
+		}
+
+		.mapnav-item.active:hover {
+			opacity: 1;
+		}
+	}
+
+	.mapnav:after {
+		display: block;
+		content: "";
+		clear: both;
 	}
 }
 
@@ -83,6 +139,15 @@
 .marker.fire {
 	background: orange;
 }
+
+.marker.geometry {
+	background: yellow;
+}
+
+.marker.plain {
+	background: lightgray;
+}
+
 
 
 

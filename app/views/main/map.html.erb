@@ -1,10 +1,9 @@
 <div id="maptest">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				
-			</div>
-		</div>
+	<div class="mapnav">
+		<div class="mapnav-item police"></div>
+		<div class="mapnav-item ems"></div>
+		<div class="mapnav-item fire"></div>
+		<div class="mapnav-item geometry"></div>
 	</div>
 	<div id='map'></div>
 </div>
@@ -38,15 +37,25 @@
 
 		// create a HTML element for each feature
 		var el = document.createElement('div');
-		el.className = 'marker police';
-		// el.className = 'marker ems';
-		// el.className = 'marker fire';
 
-		// make a marker for each feature and add to the map
+		// check which marker is selected
+		if ($(".mapnav-item.active").hasClass("police")) {
+			el.className = 'marker police';
+		} else if ($(".mapnav-item.active").hasClass("ems")) {
+			el.className = 'marker ems';
+		} else if ($(".mapnav-item.active").hasClass("fire")) {
+			el.className = 'marker fire';
+		} else if ($(".mapnav-item.active").hasClass("geometry")) {
+			el.className = 'marker geometry';
+		} else {
+			el.className = 'marker plain';
+		}
+
+		// make a marker and add to the map
 		new mapboxgl.Marker(el).setLngLat([ln,lt]).addTo(map);
-		// var marker = new mapboxgl.Marker(mhtml).setLngLat([ln,lt]).addTo(map);
 
-		// createMarker(lt,ln)
+		/// create the marker in the DB
+		createMarker(lt,ln)
 	});
 
 
@@ -54,10 +63,9 @@
 	$(window).load(function() {
 
 		//// check for latest markers and any new additions!
-		console.log("checking live marker additions")
-		var interval = setInterval(function(){
-			checkMarkers()
-		}, 5000)
+		// var interval = setInterval(function(){
+		// 	checkMarkers()
+		// }, 5000)
 		
 	})
 
@@ -76,15 +84,5 @@
 	}
 
 </script>
-<!-- 
-TR
-34.79626347106817
--117.93800448840696
 
-TL
-34.79626347106817
-map:56 -119.31691450176572
 
-BL
-34.00707234401874
-map:56 -119.30137748753182 -->

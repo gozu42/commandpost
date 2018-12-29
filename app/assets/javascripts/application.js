@@ -20,6 +20,12 @@
 $(document).ready(function() {
 
 
+	//// mapnav items on clicks
+	$(".mapnav-item").on("click", function(){
+		$(".mapnav-item").addClass("inactive").removeClass("active")
+		$(this).addClass("active").removeClass("inactive")
+	})
+
 })
 
 
