@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
+  match '/map', to: 'main#map', via: 'get'
+
 end

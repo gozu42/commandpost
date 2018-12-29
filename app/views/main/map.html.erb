@@ -1,0 +1,28 @@
+<div id="maptest">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>Map Test</h1>
+			</div>
+		</div>
+	</div>
+	<div id='map'></div>
+</div>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+
+
+
+<script type="text/javascript">
+  
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYnJ5YW5rbm91c2UiLCJhIjoiY2pxOHFlb3FoMzN1NTQzcGR0aGIxa240NSJ9.xgH24CaHc9SZuSCQ2Q24kw';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    center: [-118.6260029,34.3861719],
+    zoom: 9,
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+
+  // var marker = new mapboxgl.Marker().setLngLat([-118.6260029,34.3861719]).addTo(map);
+</script>
