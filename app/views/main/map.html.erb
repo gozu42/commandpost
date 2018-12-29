@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h1>Map Test</h1>
+				<!-- <h1>Map Test</h1> -->
 			</div>
 		</div>
 	</div>
@@ -16,13 +16,37 @@
 
 <script type="text/javascript">
   
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYnJ5YW5rbm91c2UiLCJhIjoiY2pxOHFlb3FoMzN1NTQzcGR0aGIxa240NSJ9.xgH24CaHc9SZuSCQ2Q24kw';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    center: [-118.6260029,34.3861719],
-    zoom: 9,
-    style: 'mapbox://styles/mapbox/streets-v11'
-  });
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYnJ5YW5rbm91c2UiLCJhIjoiY2pxOHFlb3FoMzN1NTQzcGR0aGIxa240NSJ9.xgH24CaHc9SZuSCQ2Q24kw';
+	var map = new mapboxgl.Map({
+		container: 'map',
+		center: [-118.6260029,34.3861719],
+		zoom: 9,
+		style: 'mapbox://styles/mapbox/streets-v11'
+	});
+
+	map.on('click', function(e) {
+		// var features = map.queryRenderedFeatures(e.point, {
+		// 	// layers: ['layer-name-here'] // replace this with the name of the layer
+		// });
+
+		console.log(e.point)
+		console.log(e.lngLat.lng)
+		console.log(e.lngLat.lat)
+
+		var marker = new mapboxgl.Marker().setLngLat([e.lngLat.lng,e.lngLat.lat]).addTo(map);
+
+		// if (!features.length) {
+	 //    	return;
+		// }
+
+		// var feature = features[0];
+
+		// var popup = new mapboxgl.Popup({ offset: [0, -15] })
+	 //    	.setLngLat(feature.geometry.coordinates)
+	 //    	.setHTML('<h3>' + feature.properties.title + '</h3><p>' + feature.properties.description + '</p>')
+	 //    	.setLngLat(feature.geometry.coordinates)
+	 //    	.addTo(map);
+	});
 
   // var marker = new mapboxgl.Marker().setLngLat([-118.6260029,34.3861719]).addTo(map);
 </script>
