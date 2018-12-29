@@ -36,15 +36,25 @@ function createMarker(lat,lng) {
 
 
 
+////// check map markers in DB to see if there are any new additions
 function checkMarkers() {
 
+	//// call API route to ping DB
 	$.get("/checkmarkers", function(data){
 
 		console.log(JSON.parse(data))
 
 		var l = JSON.parse(data).lat
 		var n = JSON.parse(data).lng
+		var t = JSON.parse(data).time
+		var tn = JSON.parse(data).t
+		var diff = tn - t
 
-		var marker = new mapboxgl.Marker().setLngLat([n,l]).addTo(map);
+		if (diff < 200) {
+			console.log("RECENT MARKER")
+			var marker = new mapboxgl.Marker().setLngLat([n,l]).addTo(map);
+		} else {
+			console.log("OLD MARKER")
+		}
 	})
 }

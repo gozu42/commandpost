@@ -18,11 +18,14 @@
 
 
 header#header {
-	background: rgba(0,0,0,.1);
+	background: rgba(0,0,0,.85);
+	position: relative;
+	z-index: 500;
 
 	h1 {
 		font-size: 1.5em;
 		margin: 0;
+		color: #fff;
 		line-height: 6rem;
 		display: inline-block;
 
@@ -40,7 +43,7 @@ header#header {
 
 		a.navlink {
 			display: inline-block;
-			color: #333;
+			color: #fff;
 			text-decoration: none;
 			line-height: 6rem;
 			cursor: pointer;

@@ -27,7 +27,7 @@ class MainController < ApplicationController
   	@m = Marker.last
 
   	respond_to do |format|
-    	format.text { render json: {lat: @m.lat, lng: @m.lng} }
+    	format.text { render json: {lat: @m.lat, lng: @m.lng, time: @m.created_at.to_i, t: DateTime.now.to_i} }
     end
   end
 
