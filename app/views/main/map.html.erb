@@ -10,6 +10,8 @@
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.css' type='text/css' />
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.4/mapbox-gl-draw.js'></script>
 
 
 
@@ -24,6 +26,16 @@
 		zoom: 9.5,
 		style: 'mapbox://styles/bryanknouse/cjq8t7219dm5o2sptlq04ak6b'
 	});
+
+	// add drawing capabilities
+	var draw = new MapboxDraw({
+	    displayControlsDefault: false,
+	    controls: {
+	        polygon: true,
+	        trash: true
+	    }
+	});
+	map.addControl(draw);
 
 
 	// add map marker to map on clicks

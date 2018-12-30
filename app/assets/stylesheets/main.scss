@@ -60,6 +60,10 @@
 		width: 100%;
 		height: 100vh;
 		z-index: 1;
+
+		.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+			margin-top: 9rem;
+		}
 	}
 
 	.mapnav {
