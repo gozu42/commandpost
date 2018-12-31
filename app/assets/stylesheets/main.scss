@@ -41,7 +41,7 @@
 		padding: .75em 1.5em;
 		border: 2px solid #fff;
 		color: #fff;
-		margin: 0 0 3.5em;
+		margin: 0 0 4.5em;
 		text-decoration: none;
 		font-size: 1.15em;
 		font-weight: 400;
@@ -54,6 +54,12 @@
 	a:hover {
 		background: #fff;
 		color: #111;
+	}
+
+	i,svg {
+		font-size: 2em;
+		color: #fff;
+		margin: 0 1em .5em 0;
 	}
 
 	p {
@@ -69,6 +75,7 @@
 		padding: .5em 1em;
 		background: #fafafa;
 		border: 2px solid #ddd;
+		color: #333;
 		text-decoration: none;
 		font-size: 1em;
 		margin: 0 0 1.5em;
@@ -91,6 +98,8 @@
 	}
 
 	.agora-remotes {
+		position: relative;
+		z-index: 6000;
 
 		.agora-player {
 			height: 300px;
@@ -120,6 +129,30 @@
 
 		.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
 			margin-top: 9rem;
+		}
+	}
+
+	#agora_local {
+		height: 75px;
+		width: 75px;
+		display: inline-block;
+
+		#player_ {
+
+		}
+	}
+
+	.agora-remotes {
+		position: fixed;
+		width: 100%;
+		left: 0;
+		bottom:0;
+		z-index: 6000;
+
+		.agora-player {
+			height: 75px;
+			width: 75px;
+			display: inline-block;
 		}
 	}
 
